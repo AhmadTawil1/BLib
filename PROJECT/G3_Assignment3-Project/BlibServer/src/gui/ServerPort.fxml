@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.shape.Circle?>
+
+<Pane prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ServerPortFrameController">
+    <children>
+        <!-- Fullscreen Background Image -->
+        <ImageView fitWidth="950" fitHeight="650" preserveRatio="false">
+            <image>
+                <Image url="@BLib_Back.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="-0.2" contrast="0.2" saturation="0.1" />
+            </effect>
+        </ImageView>
+
+        <!-- Logo and Header -->
+        <HBox spacing="10" layoutX="40.0" layoutY="20.0" alignment="CENTER_LEFT">
+            <ImageView fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+                <image>
+                    <!-- Replace 'logo.png' with the path to your logo -->
+                    <Image url="@BLib_Logo.png" />
+                </image>
+                <clip>
+                    <Circle centerX="50" centerY="50" radius="30" />
+                </clip>
+            </ImageView>
+            <Label text="Server Management" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; " />
+        </HBox>
+
+        <!-- Form Section -->
+        <VBox spacing="10" layoutX="40.0" layoutY="150.0" style="-fx-padding: 10; -fx-background-color: rgba(255,255,255,0.7); -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5;" prefWidth="400">
+            <Label text="Server Settings" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <HBox spacing="10">
+                <Label text="Server IP:" style="-fx-font-weight: bold;" />
+                <Label fx:id="serverIpLabel" text="192.168.68.60" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Port:" style="-fx-font-weight: bold;" />
+                <Label text="5555" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="DB Name:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="dbNametxt" text="blib_database" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="DB User:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="dbUsertxt" text="root" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="DB Password:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="dbPasstxt" text="AhmadTawil?!1" />
+            </HBox>
+            <Label fx:id="statusLabel" style="-fx-text-fill: green;" />
+        </VBox>
+
+        <!-- TableView for Connected Clients -->
+        <VBox layoutX="470.0" layoutY="80.0" prefWidth="440.0" style="-fx-background-color: rgba(255,255,255,0.7); -fx-padding: 10; -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5;">
+            <Label text="Connected Clients" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <TableView fx:id="clientsTable" prefHeight="250.0">
+                <columns>
+                    <TableColumn fx:id="clientIdColumn" text="Client ID" prefWidth="120" />
+                    <TableColumn fx:id="ipColumn" text="IP Address" prefWidth="150" />
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="150" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Log Area -->
+        <VBox layoutX="40.0" layoutY="400.0" prefWidth="870.0" style="-fx-background-color: rgba(255,255,255,0.7); -fx-padding: 10; -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5;">
+            <Label text="Server Log" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <TextArea fx:id="logArea" prefHeight="150.0" wrapText="true" />
+        </VBox>
+
+        <!-- Buttons -->
+        <HBox spacing="20" layoutX="40.0" layoutY="580.0" alignment="CENTER">
+            <Button fx:id="btnConnect" text="Connect" onAction="#handleConnect" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+            <Button fx:id="btnDisconnect" text="Disconnect" onAction="#handleDisconnect" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+            <Button fx:id="btnExit" text="Exit" onAction="#getExitBtn" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+        </HBox>
+    </children>
+</Pane>

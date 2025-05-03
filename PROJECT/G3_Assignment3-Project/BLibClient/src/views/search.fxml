@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+      fx:controller="controllers.SearchController" spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+	<HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
+	    <Button text="← Back" onAction="#onBackArrowClicked" style="-fx-font-size: 14px; -fx-background-color: transparent; -fx-text-fill: #0078D7; -fx-cursor: hand;" />
+	    <Label text="Search Books" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+	</HBox>
+
+    <!-- Search Bar Section -->
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+        <TextField fx:id="searchBar" promptText="Search by title, subject, or description" prefWidth="500" />
+        <Button text="Search" onAction="#onSearchClicked" style="-fx-font-size: 14px;" />
+    </HBox>
+
+    <!-- Results Table Section -->
+    <TableView fx:id="resultsTable" prefHeight="400" style="-fx-background-color: #ffffff; -fx-border-color: #dcdcdc;">
+        <columns>
+            <TableColumn text="Title" fx:id="titleColumn" prefWidth="200" />
+            <TableColumn text="Author" fx:id="authorColumn" prefWidth="200" />
+            <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="150" />
+            <TableColumn text="Description" fx:id="descriptionColumn" prefWidth="250" />
+            <TableColumn text="Availability" fx:id="availabilityColumn" prefWidth="150" />
+            <TableColumn text="Location" fx:id="locationColumn" prefWidth="150" />
+        </columns>
+    </TableView>
+</VBox>

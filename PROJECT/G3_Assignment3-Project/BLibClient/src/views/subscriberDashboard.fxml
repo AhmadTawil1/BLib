@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.SubscriberDashboardController" style="-fx-padding: 20; -fx-background-color: #f9f9f9;">
+    
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 15; -fx-background-color: #f4f4f4; -fx-border-color: #dcdcdc; -fx-border-width: 0 0 1 0;">
+            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+               <image>
+                   <Image url="@BLib_Logo.png" />
+               </image>
+               <clip>
+                   <Circle centerX="25" centerY="25" radius="15" />
+               </clip>
+            </ImageView>
+            <Label fx:id="greetingLabel" text="Welcome, Subscriber!" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2d3436;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#onLogoutClicked" style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+        </HBox>
+    </top>
+    
+    <!-- Sidebar Navigation -->
+    <left>
+        <VBox spacing="15" style="-fx-padding: 15; -fx-background-color: #eaeaea; -fx-border-color: #dcdcdc;">
+            <Button text="Borrowing History" onAction="#onViewBorrowedBooksClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+            <Button text="Reservation History" onAction="#onManageReservationsClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+            <Button text="Account Management" onAction="#onViewAccountDetailsClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+        </VBox>
+    </left>
+    
+    <!-- Main Content Area -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            
+            <!-- Search Section -->
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+                <TextField fx:id="searchField" promptText="Search by title, author, or subject" style="-fx-font-size: 14px;" />
+                <Button text="Search" onAction="#onSearchBooksClicked" style="-fx-font-size: 14px; -fx-background-color: #27ae60; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+            </HBox>
+            
+            <!-- TableView for Search Results -->
+            <TableView fx:id="booksTable" style="-fx-background-color: #ffffff;" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Title" />
+                    <TableColumn fx:id="authorColumn" text="Author" />
+                    <TableColumn fx:id="subjectColumn" text="Subject" />
+                    <TableColumn fx:id="descriptionColumn" text="Description" />
+                    <TableColumn fx:id="availabilityColumn" text="Availability" />
+                    <TableColumn fx:id="locationColumn" text="Location" />
+                </columns>
+            </TableView>
+            
+            <!-- Reserve Button -->
+            <Button text="Reserve Selected Book" onAction="#onReserveBookClicked" style="-fx-font-size: 14px; -fx-background-color: #e67e22; -fx-text-fill: white;" />
+            
+        </VBox>
+    </center>
+
+    <!-- Messages Section -->
+    <bottom>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f9f9f9; -fx-border-color: #dcdcdc; -fx-border-width: 1 0 0 0;">
+            <Label text="Messages" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2d3436;" />
+            <ListView fx:id="messagesList" prefHeight="150" style="-fx-background-color: #ffffff; -fx-border-color: #dcdcdc; -fx-border-radius: 5;" />
+        </VBox>
+    </bottom>
+</BorderPane>

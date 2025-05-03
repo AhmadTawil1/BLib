@@ -1,0 +1,12 @@
+/* JavaFX CSS */
+#btnStudentInfo {
+	-fx-background-color: white;
+	-fx-text-fill: babyblue;
+	-fx-padding: 6 6 6 6;
+	-fx-border-radius: 8;
+	-fx-font-weight: bold;
+}
+
+.root {
+	-fx-background-color: babyblue;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.ManageSubscribersController" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
+            <!-- Back Arrow -->
+            <Button text="← Back" onAction="#onBackClicked" style="-fx-font-size: 14px; -fx-background-color: transparent; -fx-cursor: hand;" />
+            <Label text="Manage Subscribers" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+    
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            <HBox spacing="10">
+                <TextField fx:id="searchField" promptText="Search Subscribers" style="-fx-font-size: 14px;" />
+                <Button text="Search" onAction="#onSearchClicked" style="-fx-font-size: 14px; -fx-background-color: #27ae60; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+            </HBox>
+            
+            <TableView fx:id="subscribersTable" prefHeight="400">
+                <columns>
+                    <TableColumn text="Subscription Number" fx:id="subscriptionNumberColumn" prefWidth="150" />
+                    <TableColumn text="Name" fx:id="nameColumn" prefWidth="150" />
+                    <TableColumn text="Email" fx:id="emailColumn" prefWidth="200" />
+                    <TableColumn text="Mobile Number" fx:id="mobileNumberColumn" prefWidth="150" />
+                    <TableColumn text="Account Status" fx:id="accountStatusColumn" prefWidth="100" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Register New Subscriber" onAction="#onRegisterClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+                <Button text="Freeze Account" onAction="#onFreezeClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+                <Button text="Unfreeze Account" onAction="#onUnfreezeClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+                <Button text="View Subscriber Card" onAction="#onViewCardClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

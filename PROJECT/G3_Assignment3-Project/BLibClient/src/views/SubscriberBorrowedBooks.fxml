@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+      fx:controller="controllers.SubscriberBorrowedBooksController" spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+    <Label text="Borrowed Books" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <!-- Borrowed Books Table -->
+    <TableView fx:id="borrowedBooksTable" prefHeight="400">
+        <columns>
+            <TableColumn text="Book Title" fx:id="bookTitleColumn" prefWidth="200" />
+            <TableColumn text="Borrow Date" fx:id="borrowDateColumn" prefWidth="150" />
+            <TableColumn text="Due Date" fx:id="dueDateColumn" prefWidth="150" />
+            <TableColumn text="Return Date" fx:id="ReturnDateColumn" prefWidth="150" />
+            <TableColumn text="Status" fx:id="statusColumn" prefWidth="100" />
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="10">
+        <Button text="Request Extension" onAction="#onRequestExtensionClicked" style="-fx-font-size: 14px; -fx-background-color: #e67e22; -fx-text-fill: white;" />
+        <Button text="Back" onAction="#onBackClicked" style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+    </HBox>
+</VBox>

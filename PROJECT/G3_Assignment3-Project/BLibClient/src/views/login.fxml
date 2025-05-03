@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+           fx:controller="controllers.LoginController">
+
+    <!-- Fullscreen Background Image -->
+    <ImageView preserveRatio="true" smooth="true" fitWidth="1920" fitHeight="1080">
+        <image>
+            <Image url="@BLib_Back.png" />
+        </image>
+        <effect>
+            <ColorAdjust brightness="-0.2" contrast="0.2" saturation="0.1" />
+        </effect>
+    </ImageView>
+
+    <!-- Semi-transparent Overlay -->
+    <Rectangle width="1920" height="1080"
+               style="-fx-fill: rgba(255, 255, 255, 0.6);" />
+
+    <!-- Main Content -->
+    <VBox spacing="20" alignment="CENTER" style="-fx-padding: 40;">
+
+        <!-- Logo Section -->
+        <VBox alignment="CENTER">
+            <ImageView fitWidth="120" fitHeight="120">
+                <image>
+                    <Image url="@BLib_Logo.png" />
+                </image>
+                <!-- Circular Clipping Mask -->
+                <clip>
+                    <Circle centerX="60" centerY="60" radius="35" />
+                </clip>
+            </ImageView>
+        </VBox>
+
+        <!-- Title Section -->
+        <Label text="Library System Login" 
+               style="-fx-font-family: 'Segoe UI'; -fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: black;" />
+        <Label text="Access your account or explore as a guest." 
+               style="-fx-font-size: 14; -fx-text-fill: black;" />
+
+        <!-- Login Form -->
+        <VBox spacing="15" alignment="CENTER">
+            <!-- User ID -->
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="User ID:" style="-fx-font-size: 14; -fx-text-fill: black;" />
+                <TextField fx:id="idField" promptText="Enter your ID" maxWidth="300"
+                           style="-fx-background-color: #fdfefe; -fx-background-radius: 5; -fx-border-color: #ccd1d9; -fx-border-width: 1; -fx-padding: 8;" />
+            </VBox>
+            <!-- Password -->
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="Password:" style="-fx-font-size: 14; -fx-text-fill: black;" />
+                <PasswordField fx:id="passwordField" promptText="Enter your password" maxWidth="300"
+                               style="-fx-background-color: #fdfefe; -fx-background-radius: 5; -fx-border-color: #ccd1d9; -fx-border-width: 1; -fx-padding: 8;" />
+            </VBox>
+        </VBox>
+
+        <!-- Buttons Section -->
+        <VBox spacing="10" alignment="CENTER">
+            <HBox spacing="10" alignment="CENTER">
+                <!-- Login Button -->
+                <Button text="Login" onAction="#onLoginClicked"
+                        style="-fx-font-family: 'Segoe UI'; -fx-font-size: 16; -fx-background-color: #5dade2; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20;" />
+                <!-- Exit Button -->
+                <Button text="Exit" onAction="#onExitClicked"
+                        style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20;" />
+            </HBox>
+            <!-- Search as Guest Button -->
+            <Button text="Search as Guest" onAction="#onSearchAsGuestClicked"
+                    style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-background-color: #85c1e9; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20; -fx-min-width: 300;" />
+        </VBox>
+
+        <!-- Footer -->
+        <Label text="Need help? Contact the library administrator." 
+               style="-fx-font-size: 12; -fx-text-fill: black;" />
+    </VBox>
+</StackPane>

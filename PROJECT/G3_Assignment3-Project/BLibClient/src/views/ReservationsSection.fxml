@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+      fx:controller="controllers.ReservationsController" spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+    <Label text="Book Reservations" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <!-- Reservations Table -->
+    <TableView fx:id="reservationsTable">
+    	<columns>
+        	<TableColumn fx:id="bookTitleColumn" text="Book Title" />
+        	<TableColumn fx:id="reservationDateColumn" text="Reservation Date" />
+        	<TableColumn fx:id="expirationDateColumn" text="Expiration Date" />
+        	<TableColumn fx:id="statusColumn" text="Status" />
+    	</columns>
+    </TableView>
+
+
+    <!-- Action Buttons -->
+    <HBox spacing="10">
+        <Button text="Cancel Reservation" onAction="#onCancelReservationClicked" style="-fx-font-size: 14px; -fx-background-color: #e67e22; -fx-text-fill: white;" />
+        <Button text="Back" onAction="#onBackClicked" style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+    </HBox>
+</VBox>

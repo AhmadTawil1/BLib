@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.SubscriberCardController" style="-fx-padding: 20;">
+
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
+            <Label fx:id="subscriberNameLabel" text="Subscriber Card - [Name]" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Close" onAction="#onCloseClicked" style="-fx-font-size: 14px;" />
+            <Button text="Update" onAction="#onUpdateClicked" style="-fx-font-size: 14px;" />
+        </HBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 10;">
+
+            <!-- Subscriber Details Section -->
+            <VBox spacing="10" style="-fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                <Label text="Subscriber Details" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Subscription Number:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="subscriptionNumberLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="emailLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Mobile Number:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="mobileNumberLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Account Status:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="statusLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </GridPane>
+            </VBox>
+
+            <!-- Borrowing History Section -->
+            <VBox spacing="10" style="-fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                <Label text="Borrowing History" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <TableView fx:id="borrowingHistoryTable" prefHeight="200">
+                    <columns>
+                        <TableColumn text="Book Title" fx:id="bookTitleColumn" prefWidth="150" />
+                        <TableColumn text="Borrow Date" fx:id="borrowDateColumn" prefWidth="100" />
+                        <TableColumn text="Due Date" fx:id="DueDateColumn" prefWidth="100" />
+                        <TableColumn text="Return Date" fx:id="ReturnDateColumn" prefWidth="100" />
+                        <TableColumn text="Status" fx:id="statusColumn" prefWidth="100" />
+                        <TableColumn text="Actions" fx:id="actionsColumn" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Usage Issues Section -->
+            <VBox spacing="10" style="-fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                <Label text="Usage Issues" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <ListView fx:id="usageIssuesList" prefHeight="150" />
+                <HBox spacing="10">
+                    <Button text="Add Issue" onAction="#onAddIssueClicked" style="-fx-font-size: 14px;" />
+                    <Button text="Resolve Issue" onAction="#onResolveIssueClicked" style="-fx-font-size: 14px;" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+</BorderPane>

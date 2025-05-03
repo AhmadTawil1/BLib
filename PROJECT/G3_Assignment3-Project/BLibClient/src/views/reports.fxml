@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.ReportsController" style="-fx-padding: 20; -fx-background-color: #f9f9f9;">
+    
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 15; -fx-background-color: #f4f4f4; -fx-border-color: #dcdcdc; -fx-border-width: 0 0 1 0;">
+            <Label text="Library Reports" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2d3436;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Back" onAction="#onBackToDashboardClicked" style="-fx-font-size: 14px; -fx-background-color: #d63031; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" />
+        </HBox>
+    </top>
+    
+    <!-- Main Content Section -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            
+            <!-- Month Picker -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Select Month:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                <DatePicker fx:id="monthPicker" style="-fx-font-size: 14px;" />
+                <Button text="Generate Report" onAction="#onGenerateReportClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5;" />
+            </HBox>
+
+            <!-- Report Selector -->            
+            <HBox spacing="10" alignment="CENTER">
+			    <Label text="Select Report:" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+			    <ChoiceBox fx:id="reportChoiceBox" style="-fx-font-size: 14px;" />
+			    <Button text="Export Report" onAction="#onExportReportClicked" style="-fx-font-size: 14px; -fx-background-color: #00b894; -fx-text-fill: white; -fx-background-radius: 5;" />
+			</HBox>
+            
+            
+            <!-- Dynamic Chart Container -->
+            <StackPane fx:id="chartContainer" style="-fx-background-color: #ffffff; -fx-padding: 20;" prefHeight="400">
+                <!-- Borrowing Times Report -->
+                <BarChart fx:id="borrowingTimesBarChart" title="Borrowing Times" visible="false" legendVisible="false">
+                    <xAxis>
+                        <CategoryAxis label="Borrowing Duration (Days)" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Number of Borrowings" tickUnit="1" />
+                    </yAxis>
+                </BarChart>
+                
+                <!-- Subscription Status Report -->
+                <PieChart fx:id="subscriptionStatusPieChart" title="Subscription Status Distribution" visible="false" />
+            </StackPane>
+        </VBox>
+    </center>
+</BorderPane>

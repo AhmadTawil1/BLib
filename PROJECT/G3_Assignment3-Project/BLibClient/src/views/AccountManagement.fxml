@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.AccountManagementController" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+    <top>
+        <Label text="Account Management" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    </top>
+    
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 10;">
+            
+            <!-- Personal Information Section -->
+            <VBox spacing="10" style="-fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                <Label text="Personal Information" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Account Status:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label fx:id="accountStatusField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                </GridPane>
+                <Button text="Save Changes" onAction="#onSaveChangesClicked" style="-fx-font-size: 14px; -fx-background-color: #27ae60; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </VBox>
+
+            <!-- Usage Issues Section -->
+            <VBox spacing="10" style="-fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                <Label text="Usage Issues" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <ListView fx:id="usageIssuesList" prefHeight="200" />
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer Section -->
+    <bottom>
+        <Button text="Back" onAction="#onBackClicked" style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+    </bottom>
+</BorderPane>

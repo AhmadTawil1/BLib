@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.0"
+            fx:controller="controllers.ManageBooksController" style="-fx-padding: 20;">
+    
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
+            <!-- Back Arrow -->
+            <Button text="← Back" onAction="#onBackClicked" style="-fx-font-size: 14px; -fx-background-color: transparent; -fx-cursor: hand;" />
+            <Label text="Manage Books" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+    
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20;">
+            <HBox spacing="10">
+                <TextField fx:id="searchField" promptText="Search Books" style="-fx-font-size: 14px;" />
+                <Button text="Search" onAction="#onSearchClicked" style="-fx-font-size: 14px; -fx-background-color: #27ae60; -fx-text-fill: white; -fx-border-radius: 5; -fx-padding: 5 15;" />
+            </HBox>
+            
+            <TableView fx:id="booksTable" prefHeight="400">
+                <columns>
+                    <TableColumn text="Book ID" fx:id="bookIdColumn" prefWidth="100" />
+                    <TableColumn text="Title" fx:id="titleColumn" prefWidth="200" />
+                    <TableColumn text="Author" fx:id="authorColumn" prefWidth="150" />
+                    <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="150" />
+                    <TableColumn text="Description" fx:id="descriptionColumn" prefWidth="250" />
+                    <TableColumn text="Available Copies" fx:id="availableCopiesColumn" prefWidth="100" />
+                    <TableColumn text="Location" fx:id="locationColumn" prefWidth="150" />
+                    <TableColumn text="Barcode" fx:id="barcodeColumn" prefWidth="150" />
+                    <TableColumn text="Nearest Return Date" fx:id="nearestReturnDateColumn" prefWidth="150" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Add Book" onAction="#onAddBookClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+                <Button text="Edit Book" onAction="#onEditBookClicked" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5;" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
